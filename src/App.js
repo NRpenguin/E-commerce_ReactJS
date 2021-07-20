@@ -1,7 +1,7 @@
-import React, {Component, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
+import ItemCount from './components/ItemCount'
 
 
 const HolaApp = () => {
@@ -10,28 +10,11 @@ const HolaApp = () => {
   )
 }
 
-
 function App() {
-  const [state, setstate] = useState(0)
-
-  function sumar() {
-    if(state != 5){
-      setstate(state + 1)  
-    }
-  }
-
-  function restar() {
-    if(state != 0){
-      setstate(state - 1)
-    }
-  }
-
   return (
     <div className="App">
       <NavBar/>
-      <button onClick={restar}>-</button>
-      {state}
-      <button onClick={sumar}> + </button>
+      <ItemCount min= {0} max={5}/>
     </div>
   );
 }
