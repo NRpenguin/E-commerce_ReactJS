@@ -15,7 +15,9 @@ function App() {
   const [state, setstate] = useState(0)
 
   function sumar() {
-    setstate(state + 1)
+    if(state != 5){
+      setstate(state + 1)  
+    }
   }
 
   function restar() {
