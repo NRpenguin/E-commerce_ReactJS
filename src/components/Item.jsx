@@ -3,7 +3,7 @@ import React from 'react'
 function Item({imagen,nombre,precio}) {
     return (
         <div>
-           {imagen}
+           <img src={imagen} alt="" />
            <br/>
            {nombre}
            <br/>
