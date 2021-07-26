@@ -59,12 +59,10 @@ function ItemDetailContainer() {
         })
 
     }, [])
-    
-    console.log(state)
 
     return (
         <div>
-            
+            [{state}]
         </div>
     )
 }
