@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Item() {
+function Item({imagen,nombre,precio}) {
     return (
         <div>
-            Item
+           {imagen}
+           <br/>
+           {nombre}
+           <br/>
+           {precio}
+           <br/>
+           <hr/>
         </div>
     )
 }

@@ -13,25 +13,25 @@ function ItemListContainer({greeting}) {
             {
                 nombre:"Despensero Micro Muro",
                 precio: 600 ,
-                imagen: "./assets/Img/productos-destacados/1.jpg",
+                imagen: './assets/img/productos/1.jpg',
                 id: 1
             },
             {
                 nombre:"BAHIUT Muro Vertical",
                 precio: 523,
-                imagen: "./assets/Img/productos-destacados/2.jpg",
+                imagen: './assets/img/productos/2.jpg',
                 id: 2
             },
             {
                 nombre:"Hindu Muro",
                 precio: 843,
-                imagen: "./assets/Img/productos-destacados/3.jpg",
+                imagen: './assets/img/productos/3.jpg',
                 id: 3
             },
             {
                 nombre:"Rrack Muro Vertical",
                 precio: 203,
-                imagen: "./assets/Img/productos-destacados/4.jpg",
+                imagen: './assets/img/productos/4.jpg',
                 id: 4  
             }
         ]
