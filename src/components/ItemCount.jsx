@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 function ItemCount ({min, max}){
     const [total, setTotal] = useState(0)
     function sumar() {
-      if(total <= max){
+      if(total < max){
         setTotal(total + 1)  
       }
     }
