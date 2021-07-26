@@ -3,6 +3,7 @@ import React from 'react'
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 import { cleanup } from '@testing-library/react'
+import ItemDetailContainer from './ItemDetailContainer'
 
 
 function ItemListContainer({greeting}) {
@@ -59,12 +60,14 @@ function ItemListContainer({greeting}) {
         })
 
     }, [])
+    
 
     return (
         <div>
             <h1>{greeting}</h1>
             <ItemCount min= {0} max={5}/>
             <ItemList  itemProd={productosInfo} />
+            <ItemDetailContainer/>
         </div>
     )
 }
