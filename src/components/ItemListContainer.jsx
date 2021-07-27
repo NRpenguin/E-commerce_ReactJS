@@ -67,7 +67,7 @@ function ItemListContainer({greeting}) {
             <h1>{greeting}</h1>
             <ItemCount min= {0} max={5}/>
             <ItemList  itemProd={productosInfo} />
-            <ItemDetailContainer/>
+            <ItemDetailContainer />
         </div>
     )
 }

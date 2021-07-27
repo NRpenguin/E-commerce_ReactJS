@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState ,useEffect} from 'react'
 import Item from './Item'
+import ItemDetail from './ItemDetail'
 
 function ItemDetailContainer() {
     const [state, setstate] = useState([])
@@ -62,7 +63,7 @@ function ItemDetailContainer() {
 
     return (
         <div>
-            [{state}]
+            {state.length> 0 && <ItemDetail state={state}/>}
         </div>
     )
 }
