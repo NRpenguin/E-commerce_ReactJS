@@ -75,7 +75,7 @@ function ItemDetailContainer({productosInfo, pasarParams}) {
 
     return (
         <div>
-            {state.length> 0 && <ItemDetail state={state} pasarArray={productosInfo} pasarParams={pasarParams}/>}
+            {state.length> 0 && <ItemDetail state={state}/>}
         </div>
     )
 }
