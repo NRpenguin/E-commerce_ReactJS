@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 
 const HolaApp = () => {
@@ -39,10 +41,22 @@ task.then((data)=>{
 
 function App() {
   return (
-    <div className="App">
-      <NavBar/>
-      <ItemListContainer greeting="itemListContainer" />
-    </div>
+      <Router>
+        <Switch>
+          <div className="App">
+            <NavBar/>
+            <Route exact path="/">
+              <ItemListContainer greeting="itemListContainer" />
+            </Route>
+            <Route exact path="/category1/:destacadosId">
+              <ItemListContainer greeting="itemListContainer" />
+            </Route>
+            <Route exact path="/category2/:ofertasId">
+              <ItemDetailContainer />
+            </Route>
+          </div>
+        </Switch>
+      </Router>
   );
 }
 

@@ -1,15 +1,17 @@
 import {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import React from 'react'
 import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 import { cleanup } from '@testing-library/react'
-import ItemDetailContainer from './ItemDetailContainer'
 
 
 function ItemListContainer({greeting}) {
     const [productosInfo, setProductosInfo] = useState([])
-    useEffect(() => {
+    const {destacadosId} = useParams()
+    /* let pasar=parseInt(destacadosId) */
 
+    useEffect(() => {
         const prod = [
             {
                 nombre:"Despensero Micro Muro",
@@ -18,7 +20,7 @@ function ItemListContainer({greeting}) {
                 id: 1
             },
             {
-                nombre:"BAHIUT Muro Vertical",
+                nombre:"destacados",
                 precio: 523,
                 imagen: '/assets/img/productos/2.jpg',
                 id: 2
@@ -33,7 +35,7 @@ function ItemListContainer({greeting}) {
                 nombre:"Rrack Muro Vertical",
                 precio: 203,
                 imagen: '/assets/img/productos/4.jpg',
-                id: 4  
+                id: 4 
             }
         ]
         
@@ -42,32 +44,44 @@ function ItemListContainer({greeting}) {
         }
 
         const task = new Promise ((res, rej) => {
-        let valor= 200
-        setTimeout(()=>{
-            if(valor=200){
-            res(prod)
-            }
-        }, 3000)
+            let valor= 200
+            setTimeout(()=>{
+                if(valor=200){
+                res(prod)
+                }
+            }, 3000)
         })
 
-        getPromiseTask()
-        task.then((data)=>{
-           return (setProductosInfo(data))
-        })
-        .catch(err =>{
-            console.log(err)
-            return err
-        })
+        if(destacadosId === undefined){
+            getPromiseTask()
+            task.then((data)=>{
+               return (setProductosInfo(data))
+            })
+            .catch(err =>{
+                console.log(err)
+                return err
+            }) 
+        }else{
+            getPromiseTask()
+            task.then((data)=>{
+            return (setProductosInfo(data.filter(it =>it.id != parseInt(destacadosId))))
+            })
+            .catch(err =>{
+                console.log(err)
+                return err
+            })
+        }
 
-    }, [])
-    
+    }, [destacadosId])
+    console.log(destacadosId)
+    let pasar= parseInt(destacadosId)
+
 
     return (
         <div>
             <h1>{greeting}</h1>
             <ItemCount min= {0} max={5}/>
             <ItemList  itemProd={productosInfo} />
-            <ItemDetailContainer/>
         </div>
     )
 }

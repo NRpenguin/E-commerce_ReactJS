@@ -1,10 +1,13 @@
 import React from 'react'
+import {useParams} from 'react-router-dom'
 import {useState ,useEffect} from 'react'
 import Item from './Item'
+import ItemDetail from './ItemDetail'
 
-function ItemDetailContainer() {
+function ItemDetailContainer({productosInfo, pasarParams}) {
     const [state, setstate] = useState([])
-    
+    const {ofertasId} = useParams()
+
     useEffect(() => {
 
         const prod = [
@@ -15,7 +18,7 @@ function ItemDetailContainer() {
                 id: 1
             },
             {
-                nombre:"BAHIUT Muro Vertical",
+                nombre:"ofertas",
                 precio: 523,
                 imagen: '/assets/img/productos/2.jpg',
                 id: 2
@@ -30,7 +33,7 @@ function ItemDetailContainer() {
                 nombre:"Rrack Muro Vertical",
                 precio: 203,
                 imagen: '/assets/img/productos/4.jpg',
-                id: 4  
+                id: 4 
             }
         ]
         
@@ -43,26 +46,36 @@ function ItemDetailContainer() {
         setTimeout(()=>{
             if(valor=200){
                 res(prod.filter((el)=>{
-                    return el.id === 1
+                    return el.id === 2
                 }))
             }
         }, 2000)
         })
 
-        getPromiseTask()
-        task.then((data)=>{
-           return setstate(data)
-        })
-        .catch(err =>{
-            console.log(err)
-            return err
-        })
-
+        if(ofertasId === undefined){
+            getPromiseTask()
+            task.then((data)=>{
+                return setstate(data)
+            })
+            .catch(err =>{
+                console.log(err)
+                return err
+            })
+        }else{
+            getPromiseTask()
+            task.then((data)=>{
+                return setstate(data.filter(et => et.id === parseInt(ofertasId)))
+            })
+            .catch(err =>{
+                console.log(err)
+                return err
+            })
+        }
     }, [])
 
     return (
         <div>
-            [{state}]
+            {state.length> 0 && <ItemDetail state={state} pasarArray={productosInfo} pasarParams={pasarParams}/>}
         </div>
     )
 }
