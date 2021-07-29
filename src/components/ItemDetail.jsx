@@ -1,12 +1,17 @@
 import React from 'react'
 
-function ItemDetail({state}) {
+function ItemDetail({state, pasarArray, pasarParams}) {
 
+  function OnClick(){
+    if(pasarArray.id === pasarParams){
+      state.filter(it => it.id = pasarParams)
+    }
+  }
   return (
     <div>
-        {state[0].nombre}
-        {state[0].imagen}
-        {state[0].precio}
+        <img src={state[0].imagen} alt="" />
+        <p>{state[0].nombre}</p>
+        <p>{state[0].precio}</p>
     </div>
   )
 }
