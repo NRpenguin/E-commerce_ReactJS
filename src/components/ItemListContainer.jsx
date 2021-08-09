@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import React from 'react'
-import ItemCount from './ItemCount'
 import ItemList from './ItemList'
 import { cleanup } from '@testing-library/react'
 
 
 function ItemListContainer({greeting}) {
     const [productosInfo, setProductosInfo] = useState([])
+    const [loading, setLoading] = useState (false) 
     const {destacadosId} = useParams()
     /* let pasar=parseInt(destacadosId) */
 
@@ -17,24 +17,28 @@ function ItemListContainer({greeting}) {
                 nombre:"Despensero Micro Muro",
                 precio: 600 ,
                 imagen: '/assets/img/productos/1.jpg',
+                categoria: 1,
                 id: 1
             },
             {
                 nombre:"destacados",
                 precio: 523,
                 imagen: '/assets/img/productos/2.jpg',
+                categoria: 1,
                 id: 2
             },
             {
                 nombre:"Hindu Muro",
                 precio: 843,
                 imagen: '/assets/img/productos/3.jpg',
+                categoria: 2,
                 id: 3
             },
             {
                 nombre:"Rrack Muro Vertical",
                 precio: 203,
                 imagen: '/assets/img/productos/4.jpg',
+                categoria: 2,
                 id: 4 
             }
         ]
@@ -47,7 +51,7 @@ function ItemListContainer({greeting}) {
             let valor= 200
             setTimeout(()=>{
                 if(valor=200){
-                res(prod)
+                  res(prod)
                 }
             }, 3000)
         })
@@ -64,7 +68,7 @@ function ItemListContainer({greeting}) {
         }else{
             getPromiseTask()
             task.then((data)=>{
-            return (setProductosInfo(data.filter(it =>it.id != parseInt(destacadosId))))
+            return (setProductosInfo(data.filter(it =>it.categoria !== parseInt(destacadosId))))
             })
             .catch(err =>{
                 console.log(err)
@@ -73,14 +77,11 @@ function ItemListContainer({greeting}) {
         }
 
     }, [destacadosId])
-    console.log(destacadosId)
-    let pasar= parseInt(destacadosId)
 
 
     return (
         <div>
             <h1>{greeting}</h1>
-            <ItemCount min= {0} max={5}/>
             <ItemList  itemProd={productosInfo} />
         </div>
     )
