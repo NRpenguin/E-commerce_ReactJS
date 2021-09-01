@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-function ItemCount ({min, max, OnAdd, array}){
+function ItemCount ({ min, max, OnAdd }){
     const [total, setTotal] = useState(1)
-    const guardar = {array}
     const [pulsar, setPulsar] = useState(false)
     function sumar() {
       if(total < max){
@@ -15,11 +14,13 @@ function ItemCount ({min, max, OnAdd, array}){
         setTotal(total - 1)
       }
     }
-    function cambioBoton (){
-      OnAdd(total, array[0])
+
+    function cambioBoton (evt){ 
+      OnAdd(total)
       setPulsar (true)
     }
-    
+
+
     return<>
       <button onClick={restar}>-</button>
       {total}
@@ -30,7 +31,7 @@ function ItemCount ({min, max, OnAdd, array}){
           <Link to={'/cart'}><button> ir a cart </button></Link>
           
         :
-        <button onClick={cambioBoton}>add to cart</button>
+        <button className="añadirCarrito" onClick={cambioBoton}>add to cart</button>
       }
     </>
 }

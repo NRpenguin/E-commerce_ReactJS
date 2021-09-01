@@ -1,83 +1,25 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import {useState ,useEffect} from 'react'
-import Item from './Item'
 import ItemDetail from './ItemDetail'
+import {getFirestore} from '../FireBase/fireBase'
 
 
-function ItemDetailContainer({productosInfo, pasarParams}) {
-    const [state, setstate] = useState([])
+function ItemDetailContainer() {
+    const [itemDet, setitemDet] = useState([])
     const {ofertasId} = useParams()
 
     useEffect(() => {
-        const prod = [
-            {
-                nombre:"Despensero Micro Muro",
-                precio: 600 ,
-                imagen: '/assets/img/productos/1.jpg',
-                categoria: 1,
-                id: 1
-            },
-            {
-                nombre:"ofertas",
-                precio: 523,
-                imagen: '/assets/img/productos/2.jpg',
-                categoria: 2,
-                id: 2
-            },
-            {
-                nombre:"Hindu Muro",
-                precio: 843,
-                imagen: '/assets/img/productos/3.jpg',
-                categoria: 1,
-                id: 3
-            },
-            {
-                nombre:"Rrack Muro Vertical",
-                precio: 203,
-                imagen: '/assets/img/productos/4.jp g',
-                categoria: 2,
-                id: 4 
-            }
-        ]
-        
-        const getPromiseTask = () =>{
-            return task
-        }
-
-        const task = new Promise ((res, rej) => {
-        let valor= 200
-        setTimeout(()=>{
-            if(valor=200){
-                res(prod)
-            }
-        }, 2000)
+        const dbQuery = getFirestore()
+        const obtenerLibros = dbQuery.collection('Libros').doc(ofertasId).get().then((resp) =>{
+            /* console.log(resp.docs) === Undefined */
+            setitemDet({ id: resp.id, ...resp.data() });
         })
-
-        if(ofertasId === undefined){
-            getPromiseTask()
-            task.then((data)=>{
-                return setstate(data)
-            })
-            .catch(err =>{
-                console.log(err)
-                return err
-            })
-        }else{
-            getPromiseTask()
-            task.then((data)=>{
-                return setstate(data.filter(et => et.categoria === parseInt(ofertasId)))
-            })
-            .catch(err =>{
-                console.log(err)
-                return err
-            })
-        }
+        /* id: Los dos puntos que significan?  */
     }, [ofertasId])
-
     return (
         <div>
-            {state.length > 0 && <ItemDetail state={state}/>}
+            <ItemDetail itemDet={itemDet}/>
         </div>
     )
 }

@@ -1,21 +1,21 @@
-import { useState, createContext, useContext } from 'react'
-
+import { useState, createContext } from 'react'
 
 export const CartContext = createContext()
 
-function UseCartContext({Children}) {
+function UseCartContext({children}) {
     const [cart, setCart] = useState([])
     function agregarEnCart(item, quantity){
-        if( item===undefined ){
-            setCart(...cart, item, quantity)
+        const compartativa = cart.indexOf(item.id === item.id) 
+        if(compartativa === -1){
+            setCart([...cart, {item, quantity}])
         }else{
-            setCart(...cart, (quantity+quantity))
+            setCart([...cart, {item, quantity: quantity + quantity}])
         }
     }
     return (
         <div>
-            <CartContext.Provider value={cart, agregarEnCart}>
-                {Children}
+            <CartContext.Provider value={{cart, agregarEnCart}}>
+                {children}
             </CartContext.Provider>
         </div>
     )

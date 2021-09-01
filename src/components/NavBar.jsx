@@ -1,43 +1,50 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
-import CartWidget from './CartWidget'
+import {NavLink} from 'react-router-dom'
+import CartWidget from './Carrito/CartWidget'
 
 function NavBar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
                 <div className="container-fluid">
-                    <NavLink to="/" className="navbar-brand" href="#">Navbar</NavLink>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+                    <NavLink to="/" className="navbar-brand">
+                        <img className="navbar-logo position-logo" src="/assets/img/LOGO REWE.jpg" alt="" height="400px" width="200px" />
+                    </NavLink>    
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <NavLink to="/category/1" className="nav-link active" aria-current="page" href="#">Destacados</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink to="/item/2" className="nav-link" href="#">Ofertas</NavLink>
-                            </li>
+                        <ul className="center navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                                <a className="dropdownStyle dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorias
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    <NavLink to="/category/Ciencia-ficción" className="link-style">
+                                        <li className="nav-link active">Ciencia-ficcion</li>
+                                    </NavLink>
+                                    <NavLink to="/category/Ficción-de-aventuras" className="link-style">
+                                        <li className="nav-link">Ficcion de aventuras</li>
+                                    </NavLink>
+                                    <NavLink to="/category/Comedia" className="link-style">
+                                        <li className="nav-link">Comedia</li>
+                                    </NavLink>
+                                    <NavLink to="/category/Acción" className="link-style">
+                                        <li className="nav-link">Accion</li>
+                                    </NavLink>
+                                    <NavLink to="/category/Suspenso" className="link-style">
+                                        <li className="nav-link">Suspenso</li>
+                                    </NavLink>
+                                    <NavLink to="/category/Ficción-gótica" className="link-style">
+                                        <li className="nav-link">Ficcion gotica</li>  
+                                    </NavLink>
+                                    <NavLink to="/category/Ficción-especulativa" className="link-style">
+                                        <li className="nav-link">Ficcion especulativa</li>     
+                                    </NavLink>
                                 </ul>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
                         </ul>
-                        <CartWidget/>
+                        <NavLink to="/cart" className="nav-link"><CartWidget/></NavLink>    
                         <form className="d-flex">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+                            <button className="btn btn-joyColor" type="submit"><div className="fas fa-search"></div></button>
                         </form>
                     </div>
                 </div>

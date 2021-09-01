@@ -1,22 +1,35 @@
 import React, { useContext } from 'react'
 import ItemCount from './ItemCount'
-import {useState, useEffect} from 'react';
-import CartContext from './context/CartContext';
+import {useState} from 'react';
+import {CartContext} from './context/CartContext';
 
-function ItemDetail({state}) {
+function ItemDetail({itemDet}) {
   const [total, setTotal] = useState(0)
-  const {agregarEnCart} = useContext(CartContext)
-  const OnAdd = (cantidad, prod)=>{
+  const {agregarEnCart} = useContext(CartContext) 
+  const OnAdd = (cantidad)=>{
     setTotal(cantidad)
-    agregarEnCart(state[0], cantidad)
+    agregarEnCart(itemDet, cantidad)
   }
-
   return <>
-    <div>
-        <img src={state[0].imagen} alt="" />
-        <p>{state[0].nombre}</p>
-        <p>{state[0].precio}</p>
-        <ItemCount OnAdd={OnAdd} min= {1} max={5} array={state}/>
+
+    {/* todo puesto en su lugar, solo falta usar la array de firebase que se obtiene por url */}
+    <div className="div-order">
+      <div>
+        <img src={itemDet.Imagen} alt="" height="400px" width="324px"/>
+      </div>
+      <div className="align-text">
+        <h1>{itemDet.Nombre}</h1>
+        <span className="font-size">${itemDet.Precio}</span> 
+        <p>datos del libro:</p>
+        <ul className="align-text">
+          <li>Autor:</li>
+          <li>Paginas:</li>
+          <li>Sinopsis:</li>
+        </ul>
+      </div>
+      <div>
+        <ItemCount OnAdd={OnAdd} min= {1} max={5}/>
+      </div>
     </div>
   </>
 }

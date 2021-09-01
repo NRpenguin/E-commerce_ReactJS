@@ -2,9 +2,9 @@ import React from 'react'
 
 function CartWidget() {
     return (
-        <a href="#" className="icon">
+        <button className="icon link-style">
             <i className="fas fa-shopping-cart"></i>
-        </a>
+        </button>
     )
 }
 
