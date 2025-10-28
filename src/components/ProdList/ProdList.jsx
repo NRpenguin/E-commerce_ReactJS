@@ -1,4 +1,3 @@
-import React from 'react'
 import ProdListA from './ProdListA'
 import ProdListB from './ProdListB'
 import {useState, useEffect} from 'react'

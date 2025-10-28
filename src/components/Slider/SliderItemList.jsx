@@ -1,4 +1,3 @@
-import React from 'react'
 import Item from '../Slider/Item'
 
 function SliderItemList({itemProd}) {

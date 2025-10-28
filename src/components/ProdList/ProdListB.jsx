@@ -1,5 +1,3 @@
-import React from 'react'
-
 function ProdListB({prodMasVendidos}) {
     return(
         <div className="sideBySideB">

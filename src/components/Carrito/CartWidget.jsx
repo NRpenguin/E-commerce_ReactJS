@@ -1,5 +1,3 @@
-import React from 'react'
-
 function CartWidget() {
     return (
         <button className="icon link-style">

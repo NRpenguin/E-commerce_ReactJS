@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Carrousel() {
     return (
         <div className="carousel-slider">

@@ -4,37 +4,27 @@ import Carrousel from './components/Carrousel'
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Cart from './components/Carrito/Cart'
-import UseCartContext from "./components/context/CartContext";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {CartContextProvider} from "./components/context/CartContext";
+import { Routes, Route } from 'react-router-dom';
 import ProdList from './components/ProdList/ProdList';
 import FooterContent from './components/Footer/FooterContent';
 
 function App() {
   return (
-    <UseCartContext>
-      <Router>
-        <Switch>
-          <div className="App">
-            <NavBar/>
-            <Carrousel />
-            <Route exact path="/">
-              <ItemListContainer greeting="Ofertas" />
-            </Route>
-            <Route exact path="/category/:catId">
-              <ItemListContainer greeting="Ofertas" />
-            </Route>
-            <Route exact path="/item/:ofertasId">
-              <ItemDetailContainer />
-            </Route>
-            <Route exact path="/Cart">
-              <Cart />
-            </Route>
-            <ProdList/>
-            <FooterContent/>
-          </div>
-        </Switch>
-      </Router>
-    </UseCartContext>
+    <CartContextProvider>
+      <div className="App">
+        <NavBar />
+        <Carrousel />
+        <Routes>
+          <Route path="/" element={<ItemListContainer greeting="Ofertas" />} />
+          <Route path="/category/:catId" element={<ItemListContainer greeting="Ofertas" />} />
+          <Route path="/item/ofertasd/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/prodlist" element={<ProdList />} />
+        </Routes>
+        <FooterContent />
+      </div>
+    </CartContextProvider>
   );
 }
 
