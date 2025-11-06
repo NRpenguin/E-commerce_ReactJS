@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, 'public'), // carpeta que servirá los archivos estáticos
-    port: 3000, // o el puerto que quieras (3000, 8080, etc.)
+    port: 8080, // o el puerto que quieras (3000, 8080, etc.)
     open: true, // abre el navegador automáticamente
     hot: true, // recarga en caliente
     historyApiFallback: true, // evita errores 404 en React Router

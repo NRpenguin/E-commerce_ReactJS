@@ -1,7 +1,7 @@
 import ProdListA from './ProdListA'
 import ProdListB from './ProdListB'
 import {useState, useEffect} from 'react'
-import {getFirestore} from '../../FireBase/fireBase'
+import {getFirebaseFirestore} from '../../FireBase/fireBase'
 
 
 function ProdList() {
@@ -9,14 +9,14 @@ function ProdList() {
     const [prodMasVendidos, setProdMasVendidos] = useState([])
     
     useEffect(() => {
-        const dbQuery = getFirestore()
+        const dbQuery = getFirebaseFirestore()
         dbQuery.collection('LibrosNovedades').get().then (
             resp => setProdNovedades(resp.docs.map(prod => ({...prod.data(), id: prod.id})))
         )
     }, [])
 
     useEffect(() => {
-        const dbQuery = getFirestore()
+        const dbQuery = getFirebaseFirestore()
         dbQuery.collection('LibrosMasVendidos').get().then (
             resp => setProdMasVendidos(resp.docs.map(prod => ({...prod.data(), id: prod.id})))
         )
