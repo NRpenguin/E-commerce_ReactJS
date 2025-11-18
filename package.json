@@ -9,6 +9,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-es2025": "^0.0.0",
     "firebase": "^12.4.0",
+    "glider-js": "^1.7.9",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.4",

@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 import {getFirebaseFirestore} from '../../FireBase/fireBase'
 
 
+
 function ProdList() {
     const [prodNovedades, setProdNovedades] = useState([])
     const [prodMasVendidos, setProdMasVendidos] = useState([])

@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom'
 import {useState ,useEffect} from 'react'
 import ItemDetail from './ItemDetail'
-import {getFirebaseFirestore, patata} from '../FireBase/fireBase'
+import {getFirebaseFirestore} from '../FireBase/fireBase'
 
 function ItemDetailContainer() {
     const [itemDet, setitemDet] = useState([])

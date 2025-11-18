@@ -1,37 +1,26 @@
 import {NavLink} from 'react-router-dom'
-import {useState} from 'react';
-import {CartContext} from '../context/CartContext';
-import { useContext } from 'react'
 
 
+//esta funcion simboliza cada item individualmente estos luego se reflejan al doc padre SliderItemList, son metidos en una array y renderizados alli dentro del slider 
 
-function Item({itemProd = {}}) {
-    const [total, setTotal] = useState(0)
+function Item({itemProd}) {
+    //Evitar errores si itemProd es undefined o null 
+    if (!itemProd) return null; 
 
-    const {agregarEnCart} = useContext(CartContext)
-    const OnAdd = (cantidad)=>{
-        setTotal(cantidad)
-        agregarEnCart({itemProd:itemProd, cantidad})
-    }
-
-    return ( 
-        /* Swiper Item */
-        <div>
-            {itemProd.map((prod)=>{
-                return(
-                    <div className= "swiperOfertas__elemento  item-distance" key={prod.id}>
-                        <NavLink to={`/item/${prod.id}`} className="navbar-brand" href="#">
-                            <img src={prod.Imagen} alt="" height="300px" width="224px"/>
-                            <br />
-                            <p className="padding-null">{prod.Nombre}</p>
-                            <br />
-                            <p className="padding-null">${prod.Precio}</p> 
-                        </NavLink>        
-                    </div>
-                )
-            })}
+    return (
+        <div className="swiperOfertas__elemento item-distance">
+            <NavLink to={`/item/${itemProd.id}`} className="navbar-brand">
+                <img
+                    src={itemProd.Imagen}
+                    alt={itemProd.Nombre}
+                    height="300px"
+                    width="224px"
+                />
+                <p className="padding-null">{itemProd.Nombre}</p>
+                <p className="padding-null">${itemProd.Precio}</p>
+            </NavLink>
         </div>
-    )
+    );
 }
 
 export default Item
