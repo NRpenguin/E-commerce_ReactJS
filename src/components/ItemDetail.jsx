@@ -4,15 +4,24 @@ import {useState} from 'react';
 import {CartContext} from './context/CartContext';
 
 function ItemDetail({itemDet}) {
+  if (!itemDet || !itemDet.Nombre) {
+    return <p>Cargando...</p>;
+  }
+  
+  //unidades del item agregado al carrito
   const [total, setTotal] = useState(0)
+
   const {agregarEnCart} = useContext(CartContext) 
+
+  //al hacer click en el boton "agregar al carrito" esta funcion se ejecuta.
+  //actualiza el estado total(que tenia como valor 0)
+  //y agrega el item al carrito
   const OnAdd = (cantidad)=>{
     setTotal(cantidad)
     agregarEnCart(itemDet, cantidad)
   }
+  
   return <>
-
-    {/* todo puesto en su lugar, solo falta usar la array de firebase que se obtiene por url */}
     <div className="div-order">
       <div>
         <img src={itemDet.Imagen} alt="" height="400px" width="324px"/>

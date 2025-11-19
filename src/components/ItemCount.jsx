@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
 
+
+//componente que maneja la cantidad del mismo item agregado al carrito
 function ItemCount ({ min, max, OnAdd }){
     const [total, setTotal] = useState(1)
     const [pulsar, setPulsar] = useState(false)
@@ -15,7 +17,7 @@ function ItemCount ({ min, max, OnAdd }){
       }
     }
 
-    function cambioBoton (evt){ 
+    function cambioBoton (){ 
       OnAdd(total)
       setPulsar (true)
     }

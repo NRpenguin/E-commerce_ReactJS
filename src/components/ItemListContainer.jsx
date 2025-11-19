@@ -13,7 +13,7 @@ function ItemListContainer({greeting}) {
         // referencia a la base de datos
         const db = getFirebaseFirestore()
 
-        // catdId tiene valor?(no es una asignacion)
+        // traduccion de la pregunta: catdId tiene valor? (no es una asignacion)
         const colRef = catId  
             //si : colref muestra resultados filtrados por categoria
             ? fQuery(collection(db, 'Libros'), where('Categoria', '==', catId))
