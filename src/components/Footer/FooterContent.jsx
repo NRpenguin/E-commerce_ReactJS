@@ -1,9 +1,8 @@
 function FooterContent() {
     return (
         <div>
-            <footer className="page-section footer py-4">
-                <div className="row-footer align-items-center">
-
+            <footer className="page-section footer">
+                <div className="row-footer">
                     <div className="col-lg-4 text-lg-left padding-left1">@2021 Rewe y su familia de compañias afiliadas. <br/> Todos
                         los derechos reservados.</div>
                     <div className="col-lg-4 my-3 my-lg-0 padding-left2">

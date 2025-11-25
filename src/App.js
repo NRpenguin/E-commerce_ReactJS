@@ -14,19 +14,23 @@ function App() {
     <CartContextProvider>
       <div className="App">
         <NavBar />
-        <Routes>
-          <Route path="/" element={
-              <>
-              <Carrousel />
-              <ItemListContainer greeting="ofertas" />
-              </>
-            }
-          />
-          <Route path="/category/:catId" element={<ItemListContainer greeting="categoria" />} />
-          <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/prodlist" element={<ProdList />} />
-        </Routes>
+
+        <main>
+          <Routes>
+            <Route path="/" element={
+               <>
+               <Carrousel />
+                <ItemListContainer greeting="ofertas" />
+                </>
+              }
+            />
+            <Route path="/category/:catId" element={<ItemListContainer greeting="categoria" />} />
+            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/prodlist" element={<ProdList />} />
+          </Routes>
+        </main>   
+
         <FooterContent />
       </div>
     </CartContextProvider>

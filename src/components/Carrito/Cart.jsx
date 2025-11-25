@@ -3,36 +3,38 @@ import { CartContext } from '../context/CartContext';
 import Form from '../form/Form';
 
 function Cart() {
-  const { cart } = useContext(CartContext);
-
-  console.log(cart);
+  const { cart, eliminarItemCart, eliminarCart } = useContext(CartContext)
+  console.log(cart)
+  const itemsRender = cart ? cart.map((prodCart) => (
+    <div className="espacio" key={prodCart.item.id}>
+      <img
+        src={prodCart.item.Imagen}
+        alt={prodCart.item.Nombre}
+        height="300px"
+        width="224px"
+      />
+      <button onClick={()=>{eliminarItemCart(prodCart.item.id)}} className="btn btn-primary remover-carrito colocar">x</button>
+      <p>{prodCart.item.Nombre}</p>
+      <p>{prodCart.item.Precio}</p>
+      <p>{prodCart.quantity}</p>
+    </div>
+  )) : []
 
   return (
-    <div className="container container-shape">
-      <h1>Cart</h1>
-      <button className="alinear" id="eliminarTodo">Eliminar Productos</button>
-      <hr />
-      <div className="orden">
-        {cart.map((prodCart) => (
-          <div className="espacio" key={prodCart.id}>
-            <img
-              src={prodCart.item.Imagen}
-              alt={prodCart.item.Nombre}
-              height="300px"
-              width="224px"
-            />
-            <button className="btn btn-primary remover-carrito colocar">x</button>
-            <p>{prodCart.item.Nombre}</p>
-            <p>{prodCart.item.Precio}</p>
-            <p>{prodCart.item.quantity}</p>
-          </div>
-        ))}
+    <div className='carousel-slider'>
+      <div className="container container-shape">
+        <h1>Carrito</h1>
+        <button onClick={eliminarCart} className="alinear" id="eliminarTodo">Eliminar Productos</button>
+        <hr />
+        <div className="orden">
+          {itemsRender}
+        </div>
       </div>
       <div className="container border">
         <Form />
-      </div>
+      </div> 
     </div>
   );
-}
+} 
 
 export default Cart;

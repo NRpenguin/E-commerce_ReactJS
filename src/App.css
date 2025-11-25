@@ -83,7 +83,7 @@
   text-align: center;
   border-radius: 1.25rem;
   background: #00000075;
-  color: rgb(0, 0, 0);/*  */
+  color: rgb(0, 0, 0);
 }
 
 .swiperOfertas__anterior {
@@ -153,6 +153,7 @@
 }
 
 .footer{
+  position: static;
   background-color: black;
 }
 
@@ -209,8 +210,11 @@ h2{
 }
 
 .border{
-  border: medium;
   border-radius: 0.25rem;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 82px;
+  margin-bottom: 82px;
 }
 
 .align-form{
@@ -241,7 +245,7 @@ h2{
 }
 
 .alinear{
-  position: absolute;
+  /* position: absolute; */
   left: 63rem;
   bottom: -1.7rem;
   background-color: #e70a0a; 
@@ -254,8 +258,15 @@ h2{
 }
 
 /* Fin */
+main {
+  flex: 1;
+}
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
