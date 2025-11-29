@@ -1,4 +1,24 @@
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+
 function Form() {
+    const { cart } = useContext(CartContext)
+
+    function stockAlcanzado() {
+        //ambas constantes devuelven nuevas arrays con la informacion pedida
+        const quantity = cart.map(elem => elem.quantity)
+        const maxStock = cart.map(elem => elem.item.maxStock)
+
+        //.some revisa cada elemento de la array quantity y si devuelve alguno que cumpla con los parametros establecidos entra en el if
+        //los parametros son "num"(que simboliza la quantity del item) y "i" que simboliza el indice que utilizamos para señalizar a la array "maxStock" en que posicion se debe ubicar para que sea la misma que en
+        //quantity
+        if ( quantity.some((num, i) => num > maxStock[i]) ) {
+            console.log("max-Stock superado")
+        }else{
+            console.log("gracias por comprar")
+        }
+    }
+    
     return (
         <div>
             <section className="page-section">
@@ -27,11 +47,11 @@ function Form() {
                                     <p className="help-block text-danger "></p>
                                 </div>
                             </div>
-                        <div className="text-center ">
-                            <div id="success "></div>
-                            <button className="btn btn-primary btn-xl text-uppercase " id="sendMessageButton " type="submit ">Comprar</button>
-                        </div>
                     </form>
+                    {/* este div deberia ir dentro del form pero si se mueve ahi, refresca la pagina y no deja ver los console.log */}
+                    <div className="text-center ">
+                        <button onClick={stockAlcanzado} className="btn btn-primary btn-xl text-uppercase " id="sendMessageButton " type="submit ">Comprar</button>
+                    </div>
                 </div>
             </section>
         </div>

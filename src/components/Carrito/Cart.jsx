@@ -4,7 +4,6 @@ import Form from '../form/Form';
 
 function Cart() {
   const { cart, eliminarItemCart, eliminarCart } = useContext(CartContext)
-  console.log(cart)
   const itemsRender = cart ? cart.map((prodCart) => (
     <div className="espacio" key={prodCart.item.id}>
       <img

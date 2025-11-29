@@ -23,15 +23,24 @@ export function CartContextProvider({ children }) {
 
   //Función para agregar un ítem al carrito
   function agregarEnCart(item, quantity) {
-    const itemExist = cart.findIndex(elem => elem.id === item.id);
-    // Si el ítem no existe en el carrito, agregarlo
-    if (itemExist === -1) {
-      setCart([...cart, { item, quantity }]);
+    //devuelve una nueva array con todos los ids que hay dentro del carrito
+    const ids= cart.map(obj => obj.item.id)
+
+    // Si item ya existe dentro del carrito, actualizar la cantidad del ítem 
+    if (ids.includes(item.id)) {
+      //encontrar el elemento que tenga el id repetido. Luego acceder a su cantidad y sumarle el nuevo pedido. luego crear un nuevo objeto con la data del item original, solo que actualizando
+      //la cantidad, finalmente pedirle a map que recorra las ids de cart y si hay una que coincida con la del item, actualizarlo con la nueva data y si no encuentra nada, devuelve el item original sin cambio
+      const findItem = cart.find(elem => elem.item.id === item.id) 
+      const sum = findItem.quantity + quantity
+      const newItem = {...findItem, quantity:sum}
+      const actualizarCart = cart.map(elem =>
+        elem.item.id === item.id ? newItem : elem
+      );
+      console.log(cart)
+      setCart(actualizarCart);
     } else {
-      // Si ya existe, actualizar la cantidad del ítem 
-      const nuevoCarrito = [...cart];
-      nuevoCarrito[itemExist].quantity += quantity;
-      setCart(nuevoCarrito);
+    // Si el ítem no existe en el carrito, agregarlo
+      setCart([...cart, { item, quantity }]);
     }
   }
 
