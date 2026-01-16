@@ -40,6 +40,9 @@ Aplicación de comercio electrónico desarrollada con **React** como proyecto pr
 ## 📚 Aprendizajes y objetivos del proyecto
 
 -Integración y configuración de Firebase como solución de backend
+
 -Manejo de estado global utilizando Context API
+
 -Uso de Webpack para el empaquetado y optimización del proyecto
+
 -Utilizacion de la herramienta IA para el analisis, correccion y mejor entendimiento del codigo, esto me ayudo a fortalecer el aprendizaje y la resolucion de problemas.
