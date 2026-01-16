@@ -2,6 +2,8 @@
 
 Aplicación de comercio electrónico desarrollada con **React** como proyecto práctico de frontend.  
 
+![Estado](https://img.shields.io/badge/estado-finalizado-success)
+
 ---
 
 ## 🚀 Tecnologías utilizadas
