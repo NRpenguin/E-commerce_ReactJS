@@ -4,12 +4,13 @@ import {useState} from 'react';
 import {CartContext} from './context/CartContext';
 
 function ItemDetail({itemDet}) {
-  if (!itemDet || !itemDet.Nombre) {
-    return <p>Cargando...</p>;
-  }
   const {agregarEnCart} = useContext(CartContext) 
   //unidades del item agregado al carrito
   const [total, setTotal] = useState(0)
+
+  if (!itemDet || !itemDet.Nombre) {
+    return <p>Cargando...</p>;
+  }
 
   //al hacer click en el boton "agregar al carrito" esta funcion se ejecuta.
   //actualiza el estado total(que tenia como valor 0)

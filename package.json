@@ -2,6 +2,7 @@
   "name": "ecommerce",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nrpenguin.github.io/E-commerce_ReactJS",
   "dependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
@@ -20,7 +21,9 @@
     "start": "webpack serve --mode development",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +51,7 @@
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",
     "babel-loader": "^10.0.0",
+    "gh-pages": "^6.3.0",
     "path-browserify": "^1.0.1",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
@@ -60,6 +64,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NRpenguin/E-commerce_ReactJS/issues"
-  },
-  "homepage": "https://github.com/NRpenguin/E-commerce_ReactJS#readme"
+  }
 }

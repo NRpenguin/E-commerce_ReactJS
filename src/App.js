@@ -1,13 +1,13 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import Carrousel from './components/Carrousel'
+import Carrousel from './components/carrousel'
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer'
-import Cart from './components/Carrito/Cart'
+import Cart from './components/carrito/cart'
 import {CartContextProvider} from "./components/context/CartContext";
 import { Routes, Route } from 'react-router-dom';
 import ProdList from './components/ProdList/ProdList';
-import FooterContent from './components/Footer/FooterContent';
+import FooterContent from './components/footer/footerContent';
 
 function App() {
   return (

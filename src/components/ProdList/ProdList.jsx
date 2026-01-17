@@ -1,5 +1,5 @@
-import ProdListA from './ProdListA'
-import ProdListB from './ProdListB'
+import ProdListA from './prodListA'
+import ProdListB from './prodListB'
 import {useState, useEffect} from 'react'
 import {getFirebaseFirestore} from '../../FireBase/fireBase'
 
