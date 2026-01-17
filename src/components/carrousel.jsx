@@ -12,7 +12,7 @@ function Carrousel() {
                                 <img src="/assets/Img/carrousel/car2.jpg" className="d-block w-100" alt="..."  height="700px" />
                             </div>
                             <div className="carousel-item">
-                                <img src="/assets/Img/carrousel/c3.jpg" className="d-block w-100" alt="..."  height="700px" />
+                                <img src="/assets/Img/carrousel/car3.jpg" className="d-block w-100" alt="..."  height="700px" />
                             </div>
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

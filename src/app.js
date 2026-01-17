@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import Carrousel from './components/carrousel'
+import Carrousel from './components/Carrousel'
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer'
 import Cart from './components/carrito/cart'
