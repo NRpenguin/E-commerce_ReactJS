@@ -7,7 +7,7 @@ function NavBar() {
             <nav className="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
                 <div className="container-fluid">
                     <NavLink to="/" className="navbar-brand">
-                        <img className="navbar-logo position-logo" src="/assets/img/LOGO REWE.jpg" alt="" height="400px" width="200px" />
+                        <img className="navbar-logo position-logo" src="/assets/img/LOGOREWE.jpg" alt="" height="400px" width="200px" />
                     </NavLink>    
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="center navbar-nav me-auto mb-2 mb-lg-0">
