@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
@@ -10,11 +11,12 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.NODE_ENV === "production"
+    {/* <BrowserRouter basename={process.env.NODE_ENV === "production"
     ? "/E-commerce_ReactJS"
-    : "/"}>
+    : "/"}> */}
+    <HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>    
   </React.StrictMode>
 );
 
