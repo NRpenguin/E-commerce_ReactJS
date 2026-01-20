@@ -5,7 +5,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'), // Carpeta donde se genera el bundle final
     filename: 'bundle.js',
-    publicPath: '/', // importante para React Router y rutas relativas
+    publicPath: '/E-commerce_ReactJS/', // importante para React Router y rutas relativas
   },
   devServer: {
     static: path.resolve(__dirname, 'public'), // carpeta que servirá los archivos estáticos
