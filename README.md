@@ -6,7 +6,22 @@ Aplicación de comercio electrónico desarrollada con **React** como proyecto pr
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## 🚀 Demo
+
+El proyecto cuenta con una demo pública desplegada mediante **GitHub Pages**.  
+URL de acceso: **https://nrpenguin.github.io/E-commerce_ReactJS/**
+
+Actualmente, debido a la configuración de rutas de una aplicación SPA desarrollada con React y al funcionamiento de GitHub Pages, al acceder directamente a la URL la vista inicial puede mostrarse en blanco y algunos recursos no cargan correctamente.
+
+Para navegar correctamente por la aplicación:
+1. Ingresar a la URL de la demo.
+2. Hacer clic en el logo ubicado en la esquina superior izquierda.
+3. A partir de ese momento, la navegación funciona de manera normal, permitiendo utilizar las funcionalidades principales, como el carrito de compras.
+
+Este comportamiento está identificado y se encuentra en proceso de análisis como parte del aprendizaje y mejora continua del proyecto.
+---
+
+## 🛠️ Tecnologías utilizadas
 
 - React
 - JSX
